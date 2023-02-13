@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 2</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="accordion" id="accordionTask"></div>
+    <script>
+      const accordion = document.getElementById("accordionTask");
+      let data = [
+        { codigo: 0, nome: "bell", detalhamento: "cantor axe" },
+        { codigo: 1, nome: "durval", detalhamento: "cantor axe2" },
+        { codigo: 2, nome: "leo santana", detalhamento: "cantor axe pagode" },
+      ];
+
+      function renderAccordion() {
+        console.log("entrou");
+        accordion.innerHTML = "";
+
+        data.map((item) => {
+          accordion.innerHTML += `
+          <div class="accordion" id="accordionTask">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id=${item.codigo}>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${item.codigo}" aria-expanded="false" aria-controls="collapse${item.codigo}">
+                  ${item.nome}
+                </button>
+              </h2>
+            <div id="collapse${item.codigo}" class="accordion-collapse collapse show" aria-labelledby="heading${item.codigo}" data-bs-parent="#accordionTask">
+              <div class="accordion-body">
+                <strong> ${item.detalhamento} </strong> 
+              </div>
+            </div>
+          </div>
+
+      `;
+        });
+      }
+
+      renderAccordion();
+    </script>
+
+    <!-- <script src="./exercicio2.js"></script> -->
+    <script src="./assets/js/bootstrap.js"></script>
+  </body>
+</html>
